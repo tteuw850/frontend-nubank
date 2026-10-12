@@ -1,0 +1,174 @@
+.nu-moments-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 100px 24px 120px;
+  position: relative;
+  z-index: 20;
+}
+
+.nu-moments-container {
+  max-width: 1084px;
+  margin: 0 auto;
+}
+
+/* Escrita centralizada ao meio com a fonte e peso idênticos à referência */
+.nu-moments-title {
+  text-align: center;
+  color: #111111;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+  margin-bottom: 64px;
+}
+
+/* Grade dos 3 cards */
+.nu-moments-grid {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* Estrutura do card idêntica à proporção e raio da imagem anexada */
+.nu-moment-card {
+  position: relative;
+  width: 340px;
+  height: 520px;
+  border-radius: 40px;
+  background-color: #f7f7f8;
+  border: 1px solid #ebebee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  /* Animação menos imediata com curva suave e tempo estendido */
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.nu-moment-card-image {
+  background-color: #1a1a24;
+  border-color: transparent;
+}
+
+/* Imagem de fundo preenchendo o card com proporção perfeita */
+.nu-card-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
+  filter: brightness(0.92);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.55s ease;
+}
+
+/* Área centralizada para o texto sobre a imagem */
+.nu-card-content-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Escrita centralizada Nubank em branco com a mesma fonte Inter */
+.nu-card-title-white {
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nu-card-title-multiline {
+  line-height: 1.15;
+}
+
+/* Animação no hover: mais forte e com subida marcante e sombra imersiva */
+.nu-moment-card:hover {
+  transform: translateY(-18px) scale(1.025);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.16),
+              0 12px 24px rgba(130, 10, 209, 0.14);
+  border-color: #c9a6ef;
+}
+
+.nu-moment-card:hover .nu-card-bg-img {
+  transform: scale(1.04);
+  filter: brightness(1);
+}
+
+.nu-moment-card:hover .nu-card-title-white {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Botão redondo roxo do Nubank com símbolo de + (SVG) */
+.nu-circle-plus-btn {
+  position: absolute;
+  bottom: -22px; /* Encaixado na base central como na imagem de referência */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #820ad1; /* Roxo oficial do Nubank */
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(130, 10, 209, 0.35);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease;
+  outline: none;
+  z-index: 5;
+}
+
+.nu-moment-card:hover .nu-circle-plus-btn {
+  transform: translateX(-50%) translateY(4px) scale(1.15);
+  box-shadow: 0 10px 24px rgba(130, 10, 209, 0.5);
+  background-color: #7007b5;
+}
+
+.nu-circle-plus-btn:hover {
+  transform: translateX(-50%) translateY(4px) scale(1.22);
+  background-color: #5c0099;
+}
+
+.nu-circle-plus-btn:active {
+  transform: translateX(-50%) scale(0.96);
+}
+
+/* Responsividade */
+@media (max-width: 1100px) {
+  .nu-moments-grid {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nu-moments-title {
+    font-size: 28px;
+    letter-spacing: -0.4px;
+    margin-bottom: 48px;
+  }
+
+  .nu-moment-card {
+    width: min(100%, 340px);
+    height: 480px;
+  }
+}

@@ -1,0 +1,198 @@
+.nu-ecosystem-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 96px 24px 120px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 20;
+}
+
+.nu-ecosystem-container {
+  max-width: 1084px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Pequeno — estilo do POSICIONAMENTO da section de cartões */
+.nu-ecosystem-label {
+  display: inline-block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #555555;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 28px;
+}
+
+/* Título maior que o posicionamento */
+.nu-ecosystem-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  color: #2a2a2a;
+  margin: 0 0 24px 0;
+}
+
+/* Texto do mesmo tamanho do posicionamento */
+.nu-ecosystem-desc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #666666;
+  margin: 0 0 32px 0;
+  max-width: 640px;
+}
+
+/* 3 frases — tamanho entre título e texto, puxado para maior, uma na frente da outra */
+.nu-ecosystem-tagline {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 30px;
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.nu-ecosystem-light {
+  color: #888888;
+  font-weight: 400;
+}
+
+.nu-ecosystem-bold {
+  color: #2a2a2a;
+  font-weight: 600;
+}
+
+.nu-ecosystem-highlight {
+  color: #820ad1;
+  font-weight: 600;
+}
+
+/* Linha topo: texto à esquerda + imagem na lateral direita (espaço em branco) */
+.nu-ecosystem-top-row {
+  width: 100%;
+  max-width: 1084px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.nu-ecosystem-text-col {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.nu-ecosystem-image-wrap {
+  width: 100%;
+  max-width: 1084px;
+  height: 520px;
+  margin-top: 56px;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 40px;
+  overflow: hidden;
+  background-color: #ffffff;
+  align-self: stretch;
+}
+
+.nu-ecosystem-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.02);
+}
+
+/* Imagem na lateral direita, sem passar do limite do 3º card */
+.nu-ecosystem-side-row {
+  flex: 0 0 340px;
+  width: 340px;
+  max-width: 340px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+.nu-ecosystem-side-image {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .nu-ecosystem-wrapper {
+    padding: 64px 24px 80px 24px;
+  }
+
+  .nu-ecosystem-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .nu-ecosystem-title {
+    font-size: 36px;
+  }
+
+  .nu-ecosystem-desc br {
+    display: none;
+  }
+
+  .nu-ecosystem-tagline {
+    font-size: 24px;
+    justify-content: center;
+  }
+
+  .nu-ecosystem-image-wrap {
+    height: 380px;
+    margin-top: 40px;
+    border-radius: 28px;
+  }
+
+  .nu-ecosystem-top-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .nu-ecosystem-text-col {
+    align-items: center;
+  }
+
+  .nu-ecosystem-side-row {
+    flex: none;
+    width: min(100%, 340px);
+    max-width: 340px;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .nu-ecosystem-side-image {
+    width: min(100%, 340px);
+  }
+}

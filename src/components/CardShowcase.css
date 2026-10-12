@@ -1,0 +1,280 @@
+.nu-showcase-wrapper {
+  width: 100%;
+  padding: 120px 24px;
+  position: relative;
+  z-index: 20;
+  transition: background-color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nu-showcase-container {
+  max-width: 1084px;
+  width: 100%;
+  margin: 0 auto;
+  /* Grid de 3 colunas idêntico à MomentsSection (3 × 340px + gap 32px) */
+  display: grid;
+  grid-template-columns: 340px 340px 340px;
+  gap: 32px;
+  justify-content: center; /* Centraliza igual ao flex justify-content: center da MomentsSection */
+  align-items: center;
+  position: relative;
+}
+
+/* ── Coluna 1 (texto) — alinhada com o card 1 da MomentsSection ── */
+.nu-showcase-left {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: textSlideFade 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Pill label "POSICIONAMENTO" */
+.nu-showcase-label {
+  display: inline-block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #555555;
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  margin-bottom: 28px;
+}
+
+/* Título grande — cinza escuro, mesmo peso/tamanho da imagem Versell */
+.nu-showcase-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  color: #2a2a2a;
+  margin-bottom: 24px;
+}
+
+/* Descrição — cinza médio */
+.nu-showcase-desc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #666666;
+  margin-bottom: 32px;
+  max-width: 380px;
+}
+
+/* Botão CTA do cartão atual */
+.nu-showcase-cta {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.3s ease,
+              background-color 0.4s ease;
+}
+
+.nu-showcase-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.nu-showcase-cta:active {
+  transform: scale(0.97);
+}
+
+/* Tagline "Menos complexidade. Mais controle. Mais escala." */
+.nu-showcase-tagline {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nu-tagline-light {
+  color: #888888;
+  font-weight: 400;
+}
+
+.nu-tagline-bold {
+  color: #2a2a2a;
+  font-weight: 600;
+}
+
+.nu-tagline-highlight {
+  color: #820ad1;
+  font-weight: 600;
+}
+
+/* ── Coluna 3 (cartão) — alinhada com o card 3 da MomentsSection ── */
+.nu-showcase-card-display {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  min-height: 520px;
+}
+
+/* Wrapper com perspectiva 3D para a imagem do cartão */
+.nu-card-perspective {
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  A imagem usa transition para a rotação.
+  NÃO há animation CSS — evita conflito com o transform inline do JS.
+*/
+.nu-card-real-img {
+  height: 430px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 28px 36px rgba(0, 0, 0, 0.22))
+         drop-shadow(0 10px 14px rgba(0, 0, 0, 0.12));
+  /* Transição suave de 1.1s com easing para a rotação */
+  transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.5s ease;
+  will-change: transform;
+  backface-visibility: visible;
+}
+
+/* Hover leve no cartão */
+.nu-card-perspective:hover .nu-card-real-img {
+  filter: drop-shadow(0 38px 48px rgba(0, 0, 0, 0.3))
+         drop-shadow(0 14px 20px rgba(130, 10, 209, 0.2));
+}
+
+/* ── Botão de Rotação ── */
+.nu-spin-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease,
+              filter 0.3s ease,
+              background-color 0.4s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.nu-spin-btn:not(:disabled):hover {
+  transform: scale(1.14) translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  filter: brightness(1.12);
+}
+
+.nu-spin-btn:not(:disabled):active {
+  transform: scale(0.9);
+}
+
+.nu-spin-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Ícone do botão de rotação gira enquanto animação está ativa */
+.nu-spin-icon-active {
+  animation: iconSpin 1.1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes iconSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Dots de navegação — centralizados sob o botão de rotação ── */
+.nu-showcase-dots {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nu-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d0d0d0;
+  cursor: pointer;
+  transition: background-color 0.35s ease,
+              transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  outline: none;
+  padding: 0;
+}
+
+.nu-dot:hover {
+  transform: scale(1.3);
+}
+
+.nu-dot-active {
+  transform: scale(1.4);
+}
+
+/* ── Animação de entrada do texto ── */
+@keyframes textSlideFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Responsividade ── */
+@media (max-width: 1100px) {
+  .nu-showcase-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nu-showcase-card-display {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .nu-showcase-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .nu-showcase-left {
+    grid-column: 1;
+    align-items: center;
+  }
+
+  .nu-showcase-card-display {
+    grid-column: 1;
+  }
+
+  .nu-showcase-title {
+    font-size: 36px;
+  }
+}

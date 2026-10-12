@@ -1,0 +1,236 @@
+:root {
+  --nubank-purple: #820ad1;
+  --nubank-purple-hover: #7007b5;
+  --nubank-purple-light: #f5edfc;
+  --nubank-text-dark: #111111;
+  --nubank-text-muted: #4a4a4a;
+  --nubank-border-subtle: #eaeaea;
+}
+
+.nu-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--nubank-border-subtle);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.nu-header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Lado Esquerdo */
+.nu-header-left {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nu-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nu-logo-link:hover {
+  opacity: 0.85;
+}
+
+.nu-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Navegação */
+.nu-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nu-nav-item {
+  color: var(--nubank-text-dark);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 8px 0;
+}
+
+.nu-nav-item:hover {
+  color: var(--nubank-purple);
+}
+
+.nu-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--nubank-purple);
+  transition: width 0.2s ease;
+  border-radius: 2px;
+}
+
+.nu-nav-item:hover::after {
+  width: 100%;
+}
+
+/* Lado Direito / Botões */
+.nu-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nu-btn {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  white-space: nowrap;
+}
+
+/* Botão Branco com escrita Roxa */
+.nu-btn-outline {
+  background-color: #ffffff;
+  color: var(--nubank-purple);
+  border: 1px solid var(--nubank-purple);
+}
+
+.nu-btn-outline:hover {
+  background-color: var(--nubank-purple-light);
+  transform: translateY(-1px);
+}
+
+.nu-btn-outline:active {
+  transform: translateY(0);
+}
+
+/* Botão Roxo com escrita Branca */
+.nu-btn-primary {
+  background-color: var(--nubank-purple);
+  color: #ffffff;
+  border: 1px solid var(--nubank-purple);
+  box-shadow: 0 4px 12px rgba(130, 10, 209, 0.2);
+}
+
+.nu-btn-primary:hover {
+  background-color: var(--nubank-purple-hover);
+  border-color: var(--nubank-purple-hover);
+  box-shadow: 0 6px 16px rgba(130, 10, 209, 0.3);
+  transform: translateY(-1px);
+}
+
+.nu-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Hambúrguer Mobile */
+.nu-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+
+.nu-hamburger-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--nubank-purple);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Menu Dropdown Mobile */
+.nu-mobile-menu {
+  display: none;
+  background: #ffffff;
+  border-top: 1px solid var(--nubank-border-subtle);
+  padding: 20px 24px 28px;
+  animation: slideDown 0.25s ease-out forwards;
+}
+
+.nu-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.nu-mobile-nav-item {
+  color: var(--nubank-text-dark);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.nu-mobile-nav-item:hover {
+  color: var(--nubank-purple);
+}
+
+.nu-mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nu-btn-full {
+  width: 100%;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .nu-nav-links,
+  .nu-header-right {
+    display: none;
+  }
+
+  .nu-mobile-toggle {
+    display: flex;
+  }
+
+  .nu-mobile-menu {
+    display: block;
+  }
+}
